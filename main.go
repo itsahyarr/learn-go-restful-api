@@ -7,6 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/itsahyarr/learn-go-restful-api/app"
 	"github.com/itsahyarr/learn-go-restful-api/controller"
+	"github.com/itsahyarr/learn-go-restful-api/exception"
 	"github.com/itsahyarr/learn-go-restful-api/helper"
 	"github.com/itsahyarr/learn-go-restful-api/repository"
 	"github.com/itsahyarr/learn-go-restful-api/service"
@@ -29,6 +30,8 @@ func main() {
 	router.POST("/api/categories", categoryController.Create)
 	router.PUT("/api/categories/:categoryId", categoryController.Update)
 	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
+
+	router.PanicHandler = exception.ErrorHandler
 
 	server := http.Server{
 		Addr:    "localhost:3000",

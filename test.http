@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Get category by id
-GET http://localhost:3000/api/categories/6
+GET http://localhost:3000/api/categories/19
 Accept: application/json
 
 ### Update category by id
